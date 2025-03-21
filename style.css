@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #ffeef2 0%, #fff5f7 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  #app {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  header h1 {
+    color: #882211;
+    font-size: 32px;
+    margin-bottom: 5px;
+  }
+  
+  header p {
+    color: #882211;
+    font-size: 16px;
+  }
+  
+  .progress-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .progress-text {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .progress-marks {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .mark {
+    font-size: 14px;
+  }
+  
+  .mark.correct {
+    color: #4CAF50;
+  }
+  
+  .mark.incorrect {
+    color: #F44336;
+  }
+  
+  .flashcard {
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 300px;
+    border: 1px solid #f0f0f0;
+    position: relative;
+  }
+  
+  /* Borde interior rojo para la tarjeta */
+  .flashcard::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(195, 47, 47, 0.3);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .japanese-characters {
+    margin: 30px 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .hiragana-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .hiragana-char {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2px;
+  }
+  
+  .hiragana-romaji {
+    color: #d86161;
+    font-size: 11px;
+    margin-bottom: 2px;
+    font-weight: 500;
+  }
+  
+  .hiragana-symbol {
+    color: #882211;
+    font-size: 28px;
+  }
+  
+  .kanji {
+    color: #882211;
+    font-size: 28px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .romaji {
+    color: #882211;
+    font-size: 22px;
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .pronunciation {
+    color: #882211;
+    font-size: 14px;
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .nav-button {
+    border: none;
+    background-color: #f5f5f5;
+    color: #c32f2f;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    transition: all 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: relative;
+    border: 1px solid rgba(195, 47, 47, 0.3);
+  }
+  
+  .nav-button:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  }
+  
+  .nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  .prev-button::before {
+    content: "←";
+    margin-right: 5px;
+  }
+  
+  .next-button::after {
+    content: "→";
+    margin-left: 5px;
+  }
+  
+  .feedback-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .know-button, .dont-know-button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    transition: opacity 0.2s;
+  }
+  
+  .know-button {
+    background-color: #c32f2f;
+  }
+  
+  .dont-know-button {
+    background-color: #c32f2f;
+  }
+  
+  .know-button:hover, .dont-know-button:hover {
+    opacity: 0.9;
+  }
+  
+  .reset-button {
+    background-color: #f8f8f8;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #c32f2f;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid rgba(195, 47, 47, 0.3);
+  }
+  
+  .reset-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .progress-container, .romaji, .pronunciation {
+    position: relative;
+    z-index: 1;
+  }
+  
